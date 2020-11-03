@@ -1,0 +1,19 @@
+package com.model;
+
+import org.springframework.data.redis.core.index.Indexed;
+
+/**
+ * Model for bet class
+ * 
+ * @author Darwin Bonilla
+ *
+ */
+public class Bet {
+
+	@Indexed
+	private Long idBet;
+	private Long money;
+	private Long idUser;
+	private String color;
+	private Long number;
+}

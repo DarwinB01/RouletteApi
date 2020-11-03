@@ -1,0 +1,61 @@
+package com.roulette.api.service;
+
+import java.util.Optional;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.roulette.api.dto.BetDTO;
+import com.roulette.api.dto.OutputDTO;
+import com.roulette.api.model.Roulette;
+import com.roulette.api.repository.RepositoryMain;
+import com.roulette.api.util.Constants;
+
+@Service
+public class ServiceBet {
+	
+	@Autowired
+	private RepositoryMain repositoryMain;
+	@Autowired
+	ObjectMapper objectMapper;
+	@Autowired
+	HttpServletRequest servletRequest;
+	
+
+	public OutputDTO placeBet(BetDTO betDTO) {
+		
+		OutputDTO output = new OutputDTO();
+		
+		String rouletteStatus = findRouletteStatus(betDTO.getIdBet());
+		
+		betDTO.setIdUser(servletRequest.getHeader("idUser"));
+		if (rouletteStatus && betDTO.getBetAmount() != null && betDTO.getBetAmount() > 0 && bet.getBetAmount() <= 10000) {
+			response = saveBet(bet);
+			response.setResponseMessage("La apuesta ha sido creada con éxito");
+			response.setResponseCode(200);
+		} else {
+			response.setResponseMessage("La apuesta no se puede realizar");
+			response.setResponseCode(400);
+		}
+
+		
+		return null;
+	}
+	
+	private String findRouletteStatus(Long id) {
+		Optional<Roulette> roulette = repositoryMain.findById(id);
+		if (roulette.isPresent()) {
+			if (roulette.get().getStatus().equals("open")) {
+
+				return Constants.OPEN;
+			}
+		}
+
+		return Constants.CLOSED;
+	}
+
+
+}

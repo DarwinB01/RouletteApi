@@ -1,0 +1,30 @@
+package com.roulette.api.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.roulette.api.model.Roulette;
+import com.roulette.api.repository.RepositoryMain;
+
+/**
+ * Roulette class for services 
+ * @author Darwin Bonilla
+ *
+ */
+@Service
+public class ServiceRoulette {
+	
+	@Autowired
+	private RepositoryMain repositoryMain;
+	@Autowired
+	ObjectMapper objectMapper;
+	
+	public Long createRoulette() {
+		Roulette roulette = new Roulette("closed");
+		Roulette outputRoulette = repositoryMain.save(roulette);
+
+		return outputRoulette.getIdRoulette();
+	}
+
+}

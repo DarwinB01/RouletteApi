@@ -1,0 +1,45 @@
+package com.roulette.api.service;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.roulette.api.dto.BetDTO;
+import com.roulette.api.dto.OutputDTO;
+import com.roulette.api.repository.RepositoryMain;
+
+@Service
+public class ServiceBet {
+	
+	@Autowired
+	private RepositoryMain repositoryMain;
+	@Autowired
+	ObjectMapper objectMapper;
+	@Autowired
+	HttpServletRequest servletRequest;
+	
+
+	public OutputDTO placeBet(BetDTO betDTO) {
+		
+		OutputDTO output = new OutputDTO();
+		
+		boolean rouletteStatus = checkRouletteById(bet.getRouletteId());
+		
+		betDTO.setIdUser(servletRequest.getHeader("idUser"));
+		if (rouletteStatus && bet.getBetAmount() != null && bet.getBetAmount() > 0 && bet.getBetAmount() <= 10000) {
+			response = saveBet(bet);
+			response.setResponseMessage("La apuesta ha sido creada con éxito");
+			response.setResponseCode(200);
+		} else {
+			response.setResponseMessage("La apuesta no se puede realizar");
+			response.setResponseCode(400);
+		}
+
+		
+		return null;
+	}
+
+
+}

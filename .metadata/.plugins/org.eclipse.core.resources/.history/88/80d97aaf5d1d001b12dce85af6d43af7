@@ -1,0 +1,16 @@
+package com.roulette.api.dto;
+
+/**
+ * Data transfer object for mapping Bet entity to BetDTO
+ * @author Darwin Bonilla
+ *
+ */
+public class BetDTO {
+	
+	private Long idBet;
+	private Long money;
+	private Long idUser;
+	private String color;
+	private Long number;
+
+}

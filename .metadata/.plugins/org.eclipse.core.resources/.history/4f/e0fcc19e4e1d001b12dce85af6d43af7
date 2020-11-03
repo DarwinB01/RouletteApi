@@ -1,0 +1,15 @@
+package com.model;
+
+/**
+ * Model for bet class
+ * 
+ * @author Darwin Bonilla
+ *
+ */
+public class Bet {
+
+	private Long money;
+	private Long idUser;
+	private String color;
+	private Long number;
+}

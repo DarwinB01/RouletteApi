@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.springframework.data.redis.core.index.Indexed"/>
+    <fullyQualifiedTypeName name="org.springframework.data.repository.CrudRepository"/>
+    <fullyQualifiedTypeName name="com.model.Roulette"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
+    <fullyQualifiedTypeName name="com.util.Constants"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
+    <fullyQualifiedTypeName name="com.roulette.api.service.ServiceBet"/>
+    <fullyQualifiedTypeName name="java.util.Optional"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+    <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonInclude.Include"/>
+    <fullyQualifiedTypeName name="com.roulette.api.dto.BetDTO"/>
+    <fullyQualifiedTypeName name="com.roulette.api.dto.WinnerDTO"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="com.roulette.api.repository.RepositoryMain"/>
+    <fullyQualifiedTypeName name="com.roulette.api.dto.OutputDTO"/>
+    <fullyQualifiedTypeName name="com.roulette.api.model.Roulette"/>
+    <fullyQualifiedTypeName name="com.roulette.api.dto.RouletteDTO"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.roulette.api.util.Constants"/>
+</qualifiedTypeNameHistroy>

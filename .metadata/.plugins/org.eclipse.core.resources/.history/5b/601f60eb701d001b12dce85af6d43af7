@@ -1,0 +1,5 @@
+package com.roulette.api.dto;
+
+public class WinnerDTO {
+
+}

@@ -1,0 +1,6 @@
+package com.roulette.api.service;
+
+@Service
+public class ServiceBet {
+
+}

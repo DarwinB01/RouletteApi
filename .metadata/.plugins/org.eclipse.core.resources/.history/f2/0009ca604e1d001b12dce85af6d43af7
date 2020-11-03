@@ -1,0 +1,10 @@
+package com.model;
+
+/**
+ * Model for bet class
+ * @author Darwin Bonilla
+ *
+ */
+public class Bet {
+
+}

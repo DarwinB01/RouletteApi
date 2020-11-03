@@ -1,0 +1,84 @@
+package com.roulette.api.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.roulette.api.dto.BetDTO;
+import com.roulette.api.dto.OutputDTO;
+import com.roulette.api.model.Roulette;
+import com.roulette.api.repository.RepositoryMain;
+import com.roulette.api.util.Constants;
+import com.fasterxml.jackson.core.type.TypeReference;
+
+
+/**
+ * Roulette class for services
+ * 
+ * @author Darwin Bonilla
+ *
+ */
+@Service
+public class ServiceRoulette {
+
+	@Autowired
+	private RepositoryMain repositoryMain;
+	@Autowired
+	ObjectMapper objectMapper;
+
+	public Long createRoulette() {
+		Roulette roulette = new Roulette("closed");
+		Roulette outputRoulette = repositoryMain.save(roulette);
+
+		return outputRoulette.getIdRoulette();
+	}
+
+	public OutputDTO openRoulette(Long id) {
+		OutputDTO outputDTO = new OutputDTO();
+		Optional<Roulette> roulette = repositoryMain.findById(id);
+		if (roulette.isPresent()) {
+			Roulette request = roulette.get();
+			if (request.getStatus().equals("closed")) {
+				request.setBetList(null);
+			}
+			request.setStatus("open");
+			repositoryMain.save(request);
+			outputDTO.setOutputMessage("Operación exitosa");
+			outputDTO.setStatusCode(Constants.STATUS_OK);
+		} else {
+			outputDTO.setOutputMessage("Operación denegada");
+			outputDTO.setStatusCode(Constants.BAD_REQUEST);
+		}
+
+		return outputDTO;
+	}
+
+	public OutputDTO closeRoulette(Long id) {
+		
+		Optional<Roulette> optionalRoulette = repositoryMain.findById(id);
+		
+		OutputDTO response = new OutputDTO();
+		
+		if (optionalRoulette.isPresent()) {
+			Roulette roulette = optionalRoulette.get();
+			roulette.setStatus(Constants.CLOSED);
+			repositoryMain.save(roulette);
+			List<BetDTO> betsDTO = objectMapper.convertValue(roulette.getBetList(), new TypeReference<List<BetDTO>>() {
+			});
+			response = selectWinner(betsDTO);
+			response.setStatusCode(Constants.STATUS_OK);
+			response.setOutputMessage("Ruleta cerrada");
+			response.setRelatedBets(betsDTO);
+
+			return response;
+		}
+		response.setResponseCode(404);
+		response.setResponseMessage("No se ha encontrado la ruleta seleccionada");
+
+		return response;
+	}
+
+}

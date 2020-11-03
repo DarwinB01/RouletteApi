@@ -1,0 +1,32 @@
+package com.roulette.api.dto;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
+@JsonInclude(Include.NON_NULL)
+public class OutputDTO {
+	private int statusCode;
+	private String outputMessage;
+	private String a;
+
+	public int getStatusCode() {
+		
+		return statusCode;
+	}
+	public void setStatusCode(int statusCode) {
+		this.statusCode = statusCode;
+	}
+	public String getOutputMessage() {
+		
+		return outputMessage;
+	}
+	public void setOutputMessage(String outputMessage) {
+		this.outputMessage = outputMessage;
+	}
+	public String getA() {
+		return a;
+	}
+	public void setA(String a) {
+		this.a = a;
+	}
+}

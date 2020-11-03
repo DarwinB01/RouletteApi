@@ -1,0 +1,16 @@
+package com.dto;
+
+import java.util.List;
+
+/**
+ * Data transfer object for mapping Roulette entity to RouletteDTO
+ * @author Darwin Bonilla 
+ *
+ */
+public class RouletteDTO {
+	
+	private Long idRoulette;
+	private List<BetDTO> betList;
+	private String status;
+
+}

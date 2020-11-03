@@ -1,0 +1,21 @@
+package com.roulette.api.dto;
+
+public class OutputDTO {
+	private int statusCode;
+	private String outputMessage;
+
+	public int getStatusCode() {
+		
+		return statusCode;
+	}
+	public void setStatusCode(int statusCode) {
+		this.statusCode = statusCode;
+	}
+	public String getOutputMessage() {
+		
+		return outputMessage;
+	}
+	public void setOutputMessage(String outputMessage) {
+		this.outputMessage = outputMessage;
+	}
+}

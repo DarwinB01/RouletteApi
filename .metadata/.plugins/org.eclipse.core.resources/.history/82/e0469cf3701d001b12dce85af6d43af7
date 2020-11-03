@@ -1,0 +1,9 @@
+package com.roulette.api.dto;
+
+public class WinnerDTO {
+	
+	private Long acquiredMoney;
+	private String userId;
+	
+
+}

@@ -1,0 +1,21 @@
+package com.roulette.api.dto;
+
+public class WinnerDTO {
+	
+	private Long acquiredMoney;
+	private String userId;
+	
+	public Long getAcquiredMoney() {
+		return acquiredMoney;
+	}
+	public void setAcquiredMoney(Long acquiredMoney) {
+		this.acquiredMoney = acquiredMoney;
+	}
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+}

@@ -1,0 +1,10 @@
+package com.model;
+
+/**
+ * Model for roulette class 	
+ * @author Darwin Bonilla
+ *
+ */
+public class Roulette {
+
+}
